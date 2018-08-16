@@ -41,7 +41,9 @@ Tech
 * [flask]
 * [wtforms]
 * [flask-googlemaps]
+* [Jinja2]
 * [Google Maps Javascript API]
+
 
 Author
 --------
@@ -56,3 +58,4 @@ MIT
 [flask-googlemaps]: https://github.com/rochacbruno/Flask-GoogleMaps
 [wtforms]: https://github.com/wtforms/wtforms
 [Google Maps Javascript API]: https://developers.google.com/maps/documentation/javascript/tutorial
+[Jinja2]: http://jinja.pocoo.org/docs/2.10/
