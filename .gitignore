@@ -1,0 +1,6 @@
+.DS_Store
+__pycache__
+airport-data-dictionaries.xlsx
+airportDatabaseSetUp.ipynb
+NfdcFacilities.csv
+NfdcFacilities.xls

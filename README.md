@@ -23,7 +23,7 @@ It was then converted to a csv formatted file and was used to create a database 
 
 The code for the database set up is within airportDatabaseSetUp.ipynb and the database (airport.db) resides within the database subdirectory of airportDistanceLookUp
 
-The app is flaskAirport.py and is within the airportDistanceLookUp directory
+The app is flaskAirport.py
 - Run the app
 ```
 python flaskAirport.py
@@ -34,7 +34,7 @@ The app will be running on http://127.0.0.1:5000/ or http://localhost:5000/
 Sample Image of Results
 ---------
 ### *Calculated Distance between JFK and GUM*
-<img src="./airportDistanceLookUp/sampleImages/JFK-GUM.png" alt="Calculated Distance between JFK and GUM">
+<img src="./sampleImages/JFK-GUM.png" alt="Calculated Distance between JFK and GUM">
 
 Tech 
 ------
