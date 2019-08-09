@@ -1,4 +1,4 @@
-Flask Airport Distance Calculator
+Airport Distance Calculator
 ============
 > A web app that calculates the distance between two U.S. airports in nautical miles.
 
@@ -33,8 +33,8 @@ The app will be running on http://127.0.0.1:5000/ or http://localhost:5000/
 
 Sample Image of Results
 ---------
-                                  Calculated Distance between JFK and GUM
-![Calculated Distance between JFK and GUM](https://github.com/lightning-dabbler/flaskAirportDistances/blob/master/airportDistanceLookUp/sampleImages/JFK-GUM.png)
+### *Calculated Distance between JFK and GUM*
+<img src="./airportDistanceLookUp/sampleImages/JFK-GUM.png" alt="Calculated Distance between JFK and GUM">
 
 Tech 
 ------
