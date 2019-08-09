@@ -43,7 +43,7 @@ Tech
 * [flask-googlemaps]
 * [Jinja2]
 * [Google Maps Javascript API]
-
+* [jQuery]
 
 Author
 --------
@@ -59,3 +59,4 @@ MIT
 [wtforms]: https://github.com/wtforms/wtforms
 [Google Maps Javascript API]: https://developers.google.com/maps/documentation/javascript/tutorial
 [Jinja2]: http://jinja.pocoo.org/docs/2.10/
+[jQuery]: https://api.jquery.com/
