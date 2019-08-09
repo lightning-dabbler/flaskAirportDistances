@@ -17,11 +17,7 @@ pip install flask-googlemaps
 pip install wtforms
 ```
 
-NfdcFacilities.xls is the data I got from the [Federal Aviation Administration].
-
-It was then converted to a csv formatted file and was used to create a database with ```sqlite3```
-
-The code for the database set up is within airportDatabaseSetUp.ipynb and the database (airport.db) resides within the database subdirectory of airportDistanceLookUp
+The database ```airport.db in sqlite3```
 
 The app is flaskAirport.py
 - Run the app
