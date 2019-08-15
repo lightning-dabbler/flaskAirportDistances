@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+    us_airport_dist_calc:
+        container_name: flask_server
+        build: .
+        volumes:
+            - .:/us-airport-distance-calc
+        ports:
+            - "5004:2004"
+        entrypoint: 
+        - sh
+        - /us-airport-distance-calc/entrypoint.sh
