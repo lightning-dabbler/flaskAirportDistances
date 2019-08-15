@@ -1,31 +1,20 @@
 Airport Distance Calculator
 ============
-> A web app that calculates the distance between two U.S. airports in nautical miles.
+> A containerized web app that calculates the distance between two U.S. airports in nautical miles.
 
 > Featured with Autocompletion functionality and Google maps plotting.
 
 Installation
 --------
-* The version of Python I used is 3.6.3
+* Docker 18.06.0+ Must Be Installed on Host before running this Web App 
 
-- install flask
-- install flask-googlemaps
-- install wtforms
-```
-pip install flask
-pip install flask-googlemaps
-pip install wtforms
-```
+- Run ```docker-compose up``` to run the app 
 
 The database ```airport.db in sqlite3```
 
-The app is flaskAirport.py
-- Run the app
-```
-python flaskAirport.py
-```
+The app is app.py
 
-The app will be running on http://127.0.0.1:5000/ or http://localhost:5000/
+The app will be running on http://127.0.0.1:5004/ or http://localhost:5004/
 
 Sample Image of Results
 ---------
@@ -40,6 +29,8 @@ Tech
 * [Jinja2]
 * [Google Maps Javascript API]
 * [jQuery]
+* [Docker]
+* [Docker-Compose]
 
 Author
 --------
@@ -56,3 +47,5 @@ MIT
 [Google Maps Javascript API]: https://developers.google.com/maps/documentation/javascript/tutorial
 [Jinja2]: http://jinja.pocoo.org/docs/2.10/
 [jQuery]: https://api.jquery.com/
+[Docker]: https://docs.docker.com/engine/reference/builder/#usage
+[Docker-Compose]: https://docs.docker.com/compose/compose-file/
