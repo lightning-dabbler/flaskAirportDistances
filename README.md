@@ -10,9 +10,16 @@ Installation
 
 - Run ```docker-compose up``` to run the app 
 
+The app is app.py
 The database ```airport.db in sqlite3```
 
-The app is app.py
+**If the images associated with the docker-compose and Dockerfile files are not available on your host computer, 
+docker will pull these images and it will take some time to have them fully pulled to your host computer.**
+**After that any** ```docker-compose up``` **commands will run the containers right away.**
+
+- Run ```docker-compose down``` to stop and remove the containers and the network.
+
+**The images, however, will still stay on your computer unless you want to remove them.** 
 
 The app will be running on http://127.0.0.1:5004/ or http://localhost:5004/
 
