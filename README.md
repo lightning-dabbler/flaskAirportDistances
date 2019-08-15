@@ -10,7 +10,7 @@ Installation
 
 - Run ```docker-compose up``` to run the app 
 
-The app is app.py
+The app is app.py.
 The database ```airport.db in sqlite3```
 
 **If the images associated with the docker-compose and Dockerfile files are not available on your host computer, 
