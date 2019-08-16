@@ -12,6 +12,7 @@ app.config['GOOGLEMAPS_KEY'] = "AIzaSyA6BxL9P4U2TIoWiBsch4b6URo8lgpLEQg"
 GoogleMaps(app)
 
 DATABASE  =  './database/airport.db'
+
 #Table = Airport
 # Columns = ID,LocationID, State, County, City, FacilityName, Latitude,Longitude
 def nauticalCalc(lat1,lon1,lat2,lon2):
@@ -28,17 +29,20 @@ def nauticalCalc(lat1,lon1,lat2,lon2):
     x = math.acos(scalarProdLeft)
     return R*x
 
-connect = sqlite3.connect(DATABASE)
-c = connect.cursor()
-c.execute('SELECT LocationID,FACILITYNAME FROM AIRPORT')
-identities = c.fetchall()
-airports  =[]
-n = len(identities)
-for i in range(n):
-    airports.append(identities[i][0])
-    airports.append(identities[i][1]+' ('+identities[i][0]+')')
-c.close()
-connect.close()
+def get_airports():
+    connect = sqlite3.connect(DATABASE)
+    c = connect.cursor()
+    c.execute('SELECT LocationID,FACILITYNAME FROM AIRPORT')
+    identities = c.fetchall()
+    airports  =[]
+    n = len(identities)
+    for i in range(n):
+        airports.append(identities[i][0])
+        airports.append(identities[i][1]+' ('+identities[i][0]+')')
+    c.close()
+    connect.close()
+    return airports
+
 class SearchForm(Form):
     autocomp1 = TextField('Insert Aiport #1',id = 'airport1_autocomplete')
     autocomp2 = TextField('Insert Aiport #2',id = 'airport2_autocomplete')
@@ -49,7 +53,7 @@ def autocomplete():
     app.logger.debug(search1)
     search2 = request.args.get('airport2_autocomplete')
     app.logger.debug(search2)
-    return jsonify(json_list = airports)
+    return jsonify(json_list = get_airports())
 
 @app.route("/")
 @app.route("/home")
@@ -123,14 +127,13 @@ def task():
         else:
             result ='The names are either not an Airport ID or a Facility Name. Please Try again.'
     else:
-        result = 'Please fill in the input spaces.'
+        # result = 'Please fill in the input spaces.'
+        return Response(status=204)
     return render_template('home.html', result=result,form=form,mymap=mymap)
-@app.route("/about")
-def about():
-    return '''<h2> Create a web app that calculates the distance (in
-nautical miles) between two airports. The app should
-autocomplete the airports and should feature all
-        airports in the U.S. only. </h2>
-    <h2>Bonus: plot the trip on Google maps.! </h2>'''
+
+@app.errorhandler(404)
+def resource_not_found(e):
+    return jsonify(error=str(e)), 404
+
 if __name__=='__main__':
     app.run(host='0.0.0.0',port=2004,debug=True)
