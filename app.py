@@ -5,6 +5,8 @@ import math
 from flask import Flask, render_template, url_for,request, Response,jsonify
 from wtforms import TextField, Form
 from flask_googlemaps import GoogleMaps,Map
+import pytz
+from datetime import datetime
 app = Flask(__name__) 
 
 
@@ -43,6 +45,9 @@ def get_airports():
     connect.close()
     return airports
 
+def current_year():
+    return datetime.now(tz=pytz.timezone('US/Eastern')).year
+
 class SearchForm(Form):
     autocomp1 = TextField('Insert Aiport #1',id = 'airport1_autocomplete')
     autocomp2 = TextField('Insert Aiport #2',id = 'airport2_autocomplete')
@@ -58,6 +63,7 @@ def autocomplete():
 @app.route("/")
 @app.route("/home")
 def home():
+    year = current_year()
     form= SearchForm(request.form)
     mymap = Map(zoom=3,style="height:500px;width:800px;margin-left:auto;margin-right:auto;display:block;",
                 identifier="view-side",
@@ -66,10 +72,12 @@ def home():
                 center_on_user_location = True,
                 markers=[(39.8283,-98.5795)] #center of US,
             )
-    return render_template('home.html',title = 'The Beginning',form=form,mymap=mymap)
+    return render_template('home.html',title = 'The Beginning',
+    form=form,mymap=mymap,year = year)
 
 @app.route("/",methods=['POST'])
 def task():
+    year = current_year()
     form  = SearchForm(request.form)
     text1 = form.autocomp1.data
     text2 = form.autocomp2.data
@@ -129,7 +137,8 @@ def task():
     else:
         # result = 'Please fill in the input spaces.'
         return Response(status=204)
-    return render_template('home.html', result=result,form=form,mymap=mymap)
+    return render_template('home.html', result=result,
+    form=form,mymap=mymap,year = year)
 
 @app.errorhandler(404)
 def resource_not_found(e):
